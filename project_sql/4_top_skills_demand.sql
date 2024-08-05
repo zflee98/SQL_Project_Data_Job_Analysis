@@ -1,7 +1,7 @@
 /*
 Course Link https://www.youtube.com/watch?v=7mz73uXD9DA&t=10694s
 Timestamp 3:14:57
-- Top 10 skills for Data Analyst jobs by demand (job count)
+- Top 5 skills for Data Analyst jobs by demand (job count)
 */
 
 SELECT
@@ -22,4 +22,4 @@ GROUP BY
 ORDER BY
     job_count DESC
 LIMIT 
-    10;
+    5;
