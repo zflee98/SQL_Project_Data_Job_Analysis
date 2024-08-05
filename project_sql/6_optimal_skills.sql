@@ -26,6 +26,4 @@ HAVING
     COUNT(job_postings_fact.job_id) > 50
 ORDER BY
     salary_year_avg DESC,
-    demand DESC
-LIMIT
-    25;
+    demand DESC;
