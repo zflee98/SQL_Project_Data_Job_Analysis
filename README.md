@@ -249,28 +249,27 @@ This query is a composite of the previous two, highlighting skills that are both
 
 ```SQL
 SELECT
-    skills_dim.skill_id,
-    skills_dim.skills,
-    COUNT(job_postings_fact.job_id) AS demand,
-    AVG(salary_year_avg) AS salary_year_avg
+    skills,
+    COUNT(job_postings_fact.job_id) AS job_count,
+    ROUND(AVG(salary_year_avg), 0) AS salary_year_avg
 FROM
     skills_job_dim
 INNER JOIN
-    job_postings_fact
-    ON job_postings_fact.job_id = skills_job_dim.job_id
-INNER JOIN
     skills_dim
     ON skills_dim.skill_id = skills_job_dim.skill_id
+INNER JOIN
+    job_postings_fact
+    ON job_postings_fact.job_id = skills_job_dim.job_id
 WHERE
-    job_title_short = 'Data Analyst' AND
-    salary_year_avg IS NOT NULL
+    salary_year_avg IS NOT NULL AND
+    job_title_short = 'Data Analyst'
 GROUP BY
-    skills_dim.skill_id
+    skills
 HAVING
     COUNT(job_postings_fact.job_id) > 50
 ORDER BY
     salary_year_avg DESC,
-    demand DESC;
+    job_count DESC;
 ```
 ### Breakdown of query result:
 1. **Emerging Technologies**: Skills like **Airflow** and **Databricks** are highly valued, indicating a strong demand for expertise in modern data orchestration and big data platforms. This reflects the growing importance of managing complex data workflows and large datasets.

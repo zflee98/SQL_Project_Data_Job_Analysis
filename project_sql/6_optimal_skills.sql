@@ -5,25 +5,24 @@ Timestamp 3:14:57
 */
 
 SELECT
-    skills_dim.skill_id,
-    skills_dim.skills,
-    COUNT(job_postings_fact.job_id) AS demand,
-    AVG(salary_year_avg) AS salary_year_avg
+    skills,
+    COUNT(job_postings_fact.job_id) AS job_count,
+    ROUND(AVG(salary_year_avg), 0) AS salary_year_avg
 FROM
     skills_job_dim
 INNER JOIN
-    job_postings_fact
-    ON job_postings_fact.job_id = skills_job_dim.job_id
-INNER JOIN
     skills_dim
     ON skills_dim.skill_id = skills_job_dim.skill_id
+INNER JOIN
+    job_postings_fact
+    ON job_postings_fact.job_id = skills_job_dim.job_id
 WHERE
-    job_title_short = 'Data Analyst' AND
-    salary_year_avg IS NOT NULL
+    salary_year_avg IS NOT NULL AND
+    job_title_short = 'Data Analyst'
 GROUP BY
-    skills_dim.skill_id
+    skills
 HAVING
     COUNT(job_postings_fact.job_id) > 50
 ORDER BY
     salary_year_avg DESC,
-    demand DESC;
+    job_count DESC;
