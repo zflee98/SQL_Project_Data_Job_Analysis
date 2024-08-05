@@ -5,7 +5,7 @@ Timestamp 3:14:57
 */
 
 SELECT
-    job_id_top_10.job_id,
+    job_id_top_20.job_id,
     job_title,
     company_name,
     salary_year_avg,
@@ -33,8 +33,8 @@ RIGHT JOIN
     ORDER BY
         salary_year_avg DESC
     LIMIT 20
-    ) AS job_id_top_10
-    ON job_id_top_10.job_id = skills_job_dim.job_id
+    ) AS job_id_top_20
+    ON job_id_top_20.job_id = skills_job_dim.job_id
 LEFT JOIN
     skills_dim
     ON skills_dim.skill_id = skills_job_dim.skill_id

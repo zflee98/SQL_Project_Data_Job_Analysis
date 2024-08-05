@@ -1,11 +1,13 @@
 /*
 Course Link https://www.youtube.com/watch?v=7mz73uXD9DA&t=10694s
 Timestamp 3:14:57
-- Is there any correlation between salary and company size (job count) for Data Analysts? Pearson's r test
+- Is there any correlation between salary and company size (job count) for Data Analysts? Pearson's r and t-test
 */
 
 SELECT
-    (sum_xy - n * mean_x * mean_y) / SQRT((sum_x2 - n * mean_x * mean_x) * (sum_y2 - n * mean_y * mean_y)) AS pearsons_r
+    (sum_xy - n * mean_x * mean_y) / SQRT((sum_x2 - n * mean_x * mean_x) * (sum_y2 - n * mean_y * mean_y)) AS pearsons_r,
+    ((sum_xy - n * mean_x * mean_y) / SQRT((sum_x2 - n * mean_x * mean_x) * (sum_y2 - n * mean_y * mean_y)) * SQRT(n - 2)) / SQRT(1 - (sum_xy - n * mean_x * mean_y) / SQRT((sum_x2 - n * mean_x * mean_x) * (sum_y2 - n * mean_y * mean_y)) * (sum_xy - n * mean_x * mean_y) / SQRT((sum_x2 - n * mean_x * mean_x) * (sum_y2 - n * mean_y * mean_y))) AS t_ratio,
+    n - 2 AS degrees_freedom
 FROM
     (
     SELECT
@@ -35,5 +37,7 @@ FROM
             job_count DESC
         ) 
     );
+
+
 
     
