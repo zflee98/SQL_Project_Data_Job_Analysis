@@ -58,7 +58,7 @@ LIMIT 20;
 3. **Role Variety:**
    - Job titles vary from **Data Analyst** to **Director of Analytics**, with salaries reflecting the role’s seniority and specialization, ranging from **$240,000** to **$650,000**.
 
-![Top Paying Roles](assets\1_query.png)
+![Top Paying Roles](https://github.com/zflee98/SQL_Project_Data_Job_Analysis/blob/main/assets/1_query.png)
 *Bar graph visualizing the salary distribution for top 20 paying Data Analyst jobs; I used Excel to generate this graph from my SQL query results.*
 
 ### 2. Salary & Company Size
@@ -201,7 +201,7 @@ LIMIT
    - **Skills Included**: Tableau, Power BI
    - **Explanation**: Tableau and Power BI are both powerful tools for creating interactive data visualizations and reports. They help in transforming complex data sets into intuitive and actionable insights through visual means, making them crucial for effective data communication and decision-making.
 
-![Top Demand Skills](assets\4_query.png)
+![Top Demand Skills](https://github.com/zflee98/SQL_Project_Data_Job_Analysis/blob/main/assets/4_query.png)
 *Bar graph visualizing the top 10 skills by demand (prevalence in Data Analyst job postings); I used Excel to generate this graph from my SQL query results for 10 positions instead of 5.*
 
 ### 5. Top Skills By Salary
@@ -241,7 +241,7 @@ LIMIT
 
 3. **Strong Demand for Data and Cloud Technologies**: Many skills associated with data management and cloud technologies feature prominently with high salaries. Skills such as Terraform, VMware, and Databricks have average salaries in the $140,000 to $150,000 range. This reflects the growing importance and value of expertise in cloud infrastructure and data analytics tools.
 
-![Top Value Skills](assets\5_query.png)
+![Top Value Skills](https://github.com/zflee98/SQL_Project_Data_Job_Analysis/blob/main/assets/5_query.png)
 *Bar graph visualizing the top 20 skills by value (average salary in Data Analyst job postings); I used Excel to generate this graph from my SQL query results for 20 positions instead of 50.*
 
 ### 6. Optimal Skills
